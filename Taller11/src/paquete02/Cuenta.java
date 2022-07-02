@@ -64,12 +64,12 @@ public class Cuenta {
     
     @Override
     public String toString() {
-        String cadena = String.format("Nombre Plato: %s\n"
+        String cadena = String.format("Nombre del cliente: %s\n"
                 + "Valor Inicial del Menu: %.2f\n"
                 + "Valor del Postre: %.2f\n"
                 + "Valor de la Bebida: %.2f"
                 + "valor Total a Cancelar: %.2f\n", 
-                obtenerNombrePlato(),
+                obtenerNombreCliente(),
                 obtenertValorInicial(),
                 obtenerValorPostre(),
                 obtenerValorBebida(),
