@@ -12,12 +12,12 @@ import java.util.ArrayList;
  */
 public class Cuenta {
     private String nombreCliente;
-    private int iva;
+    private double iva;
     private ArrayList<Menu> listaMenu = new ArrayList<>();
     private double valorCancelar;
     private double subtotal;
 
-    public Cuenta(String n, int i, ArrayList<Menu> lista) {
+    public Cuenta(String n, double i, ArrayList<Menu> lista) {
         nombreCliente = n;
         iva = i;
         listaMenu = lista;
@@ -27,7 +27,7 @@ public class Cuenta {
         this.nombreCliente = c;
     }
 
-    public void establecerIva(int c) {
+    public void establecerIva(double c) {
         this.iva = c;
     }
 
@@ -41,14 +41,14 @@ public class Cuenta {
         }
     }
     public void establecerValorCancelar() {
-        valorCancelar = subtotal + (subtotal*(iva/100));
+        valorCancelar = (subtotal + ((subtotal*iva)/(100)));
     }
 
     public String obtenerNombreCliente() {
         return nombreCliente;
     }
 
-    public int obtenerIva() {
+    public double obtenerIva() {
         return iva;
     }
 
@@ -65,19 +65,20 @@ public class Cuenta {
     @Override
     public String toString() {
         String cadena = String.format("Factura\n"
-                + "Nombre del cliente: %s\n"
+                + "Cliente: %s\n"
                 + "Listado de Cartas: \n",
                 obtenerNombreCliente());
         for (int i = 0; i < listaMenu.size(); i++) {
             cadena = String.format("%s%s\n",cadena ,listaMenu.get(i));
         }
+        String porcentaje = "%";
         cadena = String.format("%s"
-                + "subtotal: %.2f\n"
-                + "IVA: %d\n"
-                + "Valor Total a Cancelar: %.2f",
+                + "subtotal: %.1f\n"
+                + "IVA: %.1f%s\n"
+                + "Valor Total a Cancelar: %.3f",
                 cadena,
                 obtenerSubtotal(),
-                obtenerIva(),
+                obtenerIva(),porcentaje,
                 obtenerValorCancelar());
         return cadena;
     }

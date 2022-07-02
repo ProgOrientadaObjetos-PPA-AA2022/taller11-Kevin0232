@@ -10,11 +10,12 @@ import paquete02.Menu;
  *
  * @author SALA I
  */
-public class MenuNinos extends Menu{
+public class MenuNinos extends Menu {
+
     private double valorHelado;
     private double valorPastel;
 
-    public MenuNinos(String nom,double valorI,double vh, double vp) {
+    public MenuNinos(String nom, double valorI, double vh, double vp) {
         super(nom, valorI);
         valorHelado = vh;
         valorPastel = vp;
@@ -27,9 +28,10 @@ public class MenuNinos extends Menu{
     public void establecerValorPastel(double c) {
         valorPastel = c;
     }
+
     @Override
     public void calcularValorMenu() {
-        valorMenu = valorInicial + valorHelado+ valorPastel;
+        valorMenu = valorInicial + valorHelado + valorPastel;
     }
 
     public double obtenerValorHelado() {
@@ -39,14 +41,15 @@ public class MenuNinos extends Menu{
     public double obtenerValorPastel() {
         return valorPastel;
     }
+
     @Override
     public String toString() {
         String cadena = String.format("Menu Ninos:\n"
-                + "Plato: %s\n"
-                + "Valor Inicial del Menu: %.2f\n"
-                + "Valor del Helado: %.2f\n"
-                + "Valor de la Pastel: %.2f"
-                + "valor Total a Cancelar: %.2f\n", 
+                + "\tPlato: %s\n"
+                + "\tValor Inicial del Menu: %.2f\n"
+                + "\tValor del Helado: %.2f\n"
+                + "\tValor de la Pastel: %.2f\n"
+                + "\tvalor Total a Cancelar: %.2f\n",
                 obtenerNombrePlato(),
                 obtenertValorInicial(),
                 obtenerValorHelado(),

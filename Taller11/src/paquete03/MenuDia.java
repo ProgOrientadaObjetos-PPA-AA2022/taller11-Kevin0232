@@ -10,11 +10,12 @@ import paquete02.Menu;
  *
  * @author SALA I
  */
-public class MenuDia extends Menu{
+public class MenuDia extends Menu {
+
     private double valorPostre;
     private double valorBebida;
 
-    public MenuDia(String nom,double valorI,double vp, double vb) {
+    public MenuDia(String nom, double valorI,double vb , double vp) {
         super(nom, valorI);
         valorPostre = vp;
         valorBebida = vb;
@@ -27,9 +28,10 @@ public class MenuDia extends Menu{
     public void establecerValorBebida(double c) {
         valorBebida = c;
     }
+
     @Override
     public void calcularValorMenu() {
-        valorMenu = valorInicial + valorPostre+ valorBebida;
+        valorMenu = valorInicial + valorPostre + valorBebida;
     }
 
     public double obtenerValorPostre() {
@@ -39,15 +41,15 @@ public class MenuDia extends Menu{
     public double obtenerValorBebida() {
         return valorBebida;
     }
-    
+
     @Override
     public String toString() {
         String cadena = String.format("Menu del Dia:\n"
-                + "Plato: %s\n"
-                + "Valor Inicial del Menu: %.2f\n"
-                + "Valor del Postre: %.2f\n"
-                + "Valor de la Bebida: %.2f"
-                + "valor Total a Cancelar: %.2f\n", 
+                + "\tPlato: %s\n"
+                + "\tValor Inicial del Menu: %.2f\n"
+                + "\tValor del Postre: %.2f\n"
+                + "\tValor de la Bebida: %.2f\n"
+                + "\tvalor Total a Cancelar: %.2f\n",
                 obtenerNombrePlato(),
                 obtenertValorInicial(),
                 obtenerValorPostre(),
@@ -55,5 +57,5 @@ public class MenuDia extends Menu{
                 obtenertValorMenu());
         return cadena;
     }
-    
+
 }
