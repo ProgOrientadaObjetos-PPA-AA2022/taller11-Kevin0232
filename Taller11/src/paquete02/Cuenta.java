@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Cuenta {
     private String nombreCliente;
     private int iva;
-    private ArrayList<Menu> listaMenu;
+    private ArrayList<Menu> listaMenu = new ArrayList<>();
     private double valorCancelar;
     private double subtotal;
 
@@ -64,16 +64,21 @@ public class Cuenta {
     
     @Override
     public String toString() {
-        String cadena = String.format("Nombre del cliente: %s\n"
-                + "Valor Inicial del Menu: %.2f\n"
-                + "Valor del Postre: %.2f\n"
-                + "Valor de la Bebida: %.2f"
-                + "valor Total a Cancelar: %.2f\n", 
-                obtenerNombreCliente(),
-                obtenertValorInicial(),
-                obtenerValorPostre(),
-                obtenerValorBebida(),
-                obtenertValorMenu());
+        String cadena = String.format("Factura\n"
+                + "Nombre del cliente: %s\n"
+                + "Listado de Cartas: \n",
+                obtenerNombreCliente());
+        for (int i = 0; i < listaMenu.size(); i++) {
+            cadena = String.format("%s%s\n",cadena ,listaMenu.get(i));
+        }
+        cadena = String.format("%s"
+                + "subtotal: %.2f\n"
+                + "IVA: %d\n"
+                + "Valor Total a Cancelar: %.2f",
+                cadena,
+                obtenerSubtotal(),
+                obtenerIva(),
+                obtenerValorCancelar());
         return cadena;
     }
     

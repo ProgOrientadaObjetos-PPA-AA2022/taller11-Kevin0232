@@ -11,9 +11,9 @@ import paquete02.Menu;
  * @author SALA I
  */
 public class MenuEconomico extends Menu{
-    private int descuento;
+    private double descuento;
 
-    public MenuEconomico(String nom,double valorI,int des) {
+    public MenuEconomico(String nom,double valorI,double des) {
         super(nom, valorI);
         descuento = des;
     }
@@ -25,14 +25,14 @@ public class MenuEconomico extends Menu{
     public void calcularValorMenu() {
         valorMenu = valorInicial - (valorInicial*(descuento/100));
     }
-    public int obtenerDescuento() {
+    public double obtenerDescuento() {
         return descuento;
     }
     
     @Override
     public String toString() {
-        String cadena = String.format("--------Menu Economico--------"
-                + "Nombre Plato: %s\n"
+        String cadena = String.format("Menu Economico:\n"
+                + "Plato: %s\n"
                 + "Valor Inicial del Menu: %.2f\n"
                 + "Valor del descuento: %.2f\n"
                 + "valor Total a Cancelar: %.2f\n", 

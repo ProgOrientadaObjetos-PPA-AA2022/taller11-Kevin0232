@@ -5,6 +5,10 @@
  */
 package paquete01;
 
+import java.util.ArrayList;
+import paquete02.*;
+import paquete03.*;
+
 /**
  *
  * @author reroes
@@ -15,23 +19,50 @@ public class Ejecutor01 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        ArrayList<Menu> listaMenu = new ArrayList<>();
+
+        // Menu Ninos
+        MenuNinos mn1 = new MenuNinos("Niños 01", 2.00, 1.00, 1.50);
+        mn1.calcularValorMenu();
+        MenuNinos mn2 = new MenuNinos("Niños 02", 3.00, 1.00, 1.50);
+        mn2.calcularValorMenu();
+        
+        listaMenu.add(mn1);
+        listaMenu.add(mn2);
+        // Menu Economico
+        MenuEconomico me1 = new MenuEconomico("Econo 001" , 4, 25);
+        me1.calcularValorMenu();
+        
+        listaMenu.add(me1);
+        // Menu Dia
+        MenuDia md1 = new MenuDia("Econo 001" , 5, 1, 1);
+        md1.calcularValorMenu();
+        
+        listaMenu.add(md1);
+        // Menu Carta
+        MenuCarta mc1 = new MenuCarta("Carta 001" , 6, 1.5 ,2 ,10);
+        mc1.calcularValorMenu();
+        
+        listaMenu.add(mc1);
+        Cuenta c1 = new Cuenta("René Elizalde", 10, listaMenu );
+        c1.establecerSubtotal();
+        c1.establecerValorCancelar();
+        System.out.println(c1);
     }
-    
-    
+
 }
 // lo que debe presentar
 /*
 Factura
 Cliente: René Elizalde
-Menu del Día:
+Menu del ninos:
 	Plato: Niños 01
 	Valor Inicial: 2,00
 	Valor helado: 1,00
 	Valor pastel: 1,50
 	Valor del Menú: 4,50
 
-Menu del Día:
+Menu del ninos:
 	Plato: Niños 02
 	Valor Inicial: 3,00
 	Valor helado: 1,00
