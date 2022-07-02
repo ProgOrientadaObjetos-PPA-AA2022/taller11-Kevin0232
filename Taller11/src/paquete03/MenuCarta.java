@@ -28,8 +28,8 @@ public class MenuCarta extends Menu{
         valorBebida = c;
     }
 
-    public void establecerValorAdicional(double c) {
-        valorAdicional = c;
+    public void establecerValorAdicional() {
+        valorAdicional = ((valorInicial)*valorAdicional/100);
     }
     
     @Override
@@ -49,5 +49,21 @@ public class MenuCarta extends Menu{
         return valorAdicional;
     }
     
-    
+    @Override
+    public String toString() {
+        String cadena = String.format("--------Menu Carta--------"
+                + "Nombre Plato: %s\n"
+                + "Valor Inicial del Menu: %.2f\n"
+                + "Valor de la Porcion: %.2f\n"
+                + "Valor de la Bebida: %.2f"
+                + "Valor adicional: %.2f\n"
+                + "valor Total a Cancelar: %.2f\n", 
+                obtenerNombrePlato(),
+                obtenertValorInicial(),
+                obtenerValorPorcion(),
+                obtenerValorBebida(),
+                obtenerValorAdicional(),
+                obtenertValorMenu());
+        return cadena;
+    }
 }

@@ -20,23 +20,38 @@ public class MenuNinos extends Menu{
         valorPastel = vp;
     }
 
-    public void establecerValorPostre(double c) {
-        valorPostre = c;
+    public void establecerValorHelado(double c) {
+        valorHelado = c;
     }
 
-    public void establecerValorBebida(double c) {
-        valorBebida = c;
+    public void establecerValorPastel(double c) {
+        valorPastel = c;
     }
     @Override
     public void calcularValorMenu() {
-        valorMenu = valorInicial + valorPostre+ valorBebida;
+        valorMenu = valorInicial + valorHelado+ valorPastel;
     }
 
-    public double obtenerValorPostre() {
-        return valorPostre;
+    public double obtenerValorHelado() {
+        return valorHelado;
     }
 
-    public double obtenerValorBebida() {
-        return valorBebida;
+    public double obtenerValorPastel() {
+        return valorPastel;
+    }
+    @Override
+    public String toString() {
+        String cadena = String.format("--------Menu Carta--------"
+                + "Nombre Plato: %s\n"
+                + "Valor Inicial del Menu: %.2f\n"
+                + "Valor del Helado: %.2f\n"
+                + "Valor de la Pastel: %.2f"
+                + "valor Total a Cancelar: %.2f\n", 
+                obtenerNombrePlato(),
+                obtenertValorInicial(),
+                obtenerValorHelado(),
+                obtenerValorPastel(),
+                obtenertValorMenu());
+        return cadena;
     }
 }
